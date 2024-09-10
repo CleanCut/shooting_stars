@@ -1,0 +1,16 @@
+[target.aarch64-apple-darwin]
+rustflags = [
+    # LLD linker
+    #
+    # The default ld64 linker is faster, you should continue using it instead.
+    #
+    # You may need to install it:
+    #
+    # Brew: `brew install llvm`
+    # Manually: <https://lld.llvm.org/MachO/index.html>
+    "-Clink-arg=-fuse-ld=/opt/homebrew/opt/llvm/bin/ld64.lld",
+
+    # Nightly
+    "-Zshare-generics=y",
+    "-Zthreads=0",
+]
